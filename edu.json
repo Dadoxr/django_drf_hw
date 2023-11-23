@@ -1,0 +1,139 @@
+[
+    {
+        "model": "edu.course",
+        "pk": 1,
+        "fields": {
+            "title": "Django",
+            "preview": "",
+            "description": "Классный курс"
+        }
+    },
+    {
+        "model": "edu.course",
+        "pk": 2,
+        "fields": {
+            "title": "ООП",
+            "preview": "",
+            "description": "Классный курс"
+        }
+    },
+    {
+        "model": "edu.course",
+        "pk": 3,
+        "fields": {
+            "title": "DRF",
+            "preview": "",
+            "description": "Классный курс"
+        }
+    },
+    {
+        "model": "edu.lesson",
+        "pk": 1,
+        "fields": {
+            "title": "Generics",
+            "course": 1,
+            "description": "Классный курс",
+            "preview_image": "",
+            "video_link": "https://my.sky.pro"
+        }
+    },
+    {
+        "model": "edu.lesson",
+        "pk": 2,
+        "fields": {
+            "title": "Views",
+            "course": 1,
+            "description": "Классный курс",
+            "preview_image": "",
+            "video_link": "https://my.sky.pro"
+        }
+    },
+    {
+        "model": "edu.lesson",
+        "pk": 3,
+        "fields": {
+            "title": "Models",
+            "course": 1,
+            "description": "Классный курс",
+            "preview_image": "",
+            "video_link": "https://my.sky.pro"
+        }
+    },
+    {
+        "model": "edu.lesson",
+        "pk": 4,
+        "fields": {
+            "title": "Urls",
+            "course": 1,
+            "description": "Классный курс",
+            "preview_image": "",
+            "video_link": "https://my.sky.pro"
+        }
+    },
+    {
+        "model": "edu.lesson",
+        "pk": 5,
+        "fields": {
+            "title": "Классы",
+            "course": 2,
+            "description": "Классный курс",
+            "preview_image": "",
+            "video_link": "https://my.sky.pro"
+        }
+    },
+    {
+        "model": "edu.lesson",
+        "pk": 6,
+        "fields": {
+            "title": "Сериализатор",
+            "course": 3,
+            "description": "Классный курс",
+            "preview_image": "",
+            "video_link": "https://my.sky.pro"
+        }
+    },
+    {
+        "model": "edu.lesson",
+        "pk": 7,
+        "fields": {
+            "title": "Вьюсеты",
+            "course": 3,
+            "description": "Классный курс",
+            "preview_image": "",
+            "video_link": "https://my.sky.pro"
+        }
+    },
+    {
+        "model": "edu.payment",
+        "pk": 1,
+        "fields": {
+            "user": 1,  
+            "pay_date": "2023-01-01T00:00:00Z",
+            "course_paid": 1,
+            "pay_sum": 100000,
+            "pay_method": "cash"
+        }
+    },
+    {
+        "model": "edu.payment",
+        "pk": 2,
+        "fields": {
+            "user": 1,  
+            "pay_date": "2023-01-01T00:00:01Z",
+            "lesson_payd": 2,
+            "pay_sum": 5000,
+            "pay_method": "cash"
+        }
+    },
+    {
+        "model": "edu.payment",
+        "pk": 2,
+        "fields": {
+            "user": 1,  
+            "pay_date": "2023-01-03T11:00:01Z",
+            "lesson_payd": 3,
+            "pay_sum": 50002,
+            "pay_method": "transfer"
+        }
+    }
+]

@@ -4,7 +4,7 @@ from users.serializers import UserSerializer
 from rest_framework.response import Response
 
 
-class CourseViewSet(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()
 

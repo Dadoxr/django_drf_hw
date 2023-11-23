@@ -42,14 +42,19 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-
     'users',
     'edu',
+
     'rest_framework',
+    'django_filters',
 	'crispy_forms',
 	'crispy_bootstrap5',
 	'django_apscheduler',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

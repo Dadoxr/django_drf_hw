@@ -3,6 +3,7 @@ from rest_framework.routers import DefaultRouter
 from edu.apps import EduConfig
 from edu.views.course import CourseViewSet
 from edu.views.lesson import LessonCreateAPIView, LessonListAPIView, LessonDestroyAPIView, LessonUpdateAPIView, LessonRetrieveAPIView
+from edu.views.payment import PaymentListAPIView
 
 app_name = EduConfig.name
 
@@ -10,11 +11,13 @@ course_router = DefaultRouter()
 course_router.register(prefix=r"course", viewset=CourseViewSet, basename='course',)
 
 urlpatterns = [
-    path('lesson/create/', LessonCreateAPIView.as_view(), name='create_lesson'),
-    path('lesson/list/', LessonListAPIView.as_view(), name='list_lesson'),
+    path('lesson/create/', LessonCreateAPIView.as_view(), name='lesson_create'),
+    path('lesson/list/', LessonListAPIView.as_view(), name='lesson_list'),
 
-    path('lesson/delete/<int:pk>/', LessonDestroyAPIView.as_view(), name='delete_lesson'),
-    path('lesson/update/<int:pk>/', LessonUpdateAPIView.as_view(), name='update_lesson'),
-    path('lesson/get/<int:pk>/', LessonRetrieveAPIView.as_view(), name='get_lesson'),
+    path('lesson/delete/<int:pk>/', LessonDestroyAPIView.as_view(), name='lesson_delete'),
+    path('lesson/update/<int:pk>/', LessonUpdateAPIView.as_view(), name='lesson_update'),
+    path('lesson/get/<int:pk>/', LessonRetrieveAPIView.as_view(), name='lesson_get'),
+
+    path('payment/list/', PaymentListAPIView.as_view(), name='payment_list')
 
 ] + course_router.urls

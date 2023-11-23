@@ -20,7 +20,7 @@ class Course(models.Model):
 
 class Lesson(models.Model):
     title = models.CharField(max_length=255, verbose_name="название")
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="курс")
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="курс", related_name='lesson')
     description = models.TextField(verbose_name="описание")
     preview_image = models.ImageField(
         upload_to="lesson/", verbose_name="превью", blank=True, null=True

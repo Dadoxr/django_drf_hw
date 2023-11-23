@@ -162,3 +162,4 @@ cython_debug/
 .vscode/
 .isort.cfg
 .mypy.ini
+1.py

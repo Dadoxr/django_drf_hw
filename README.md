@@ -40,6 +40,11 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 ```
 
+8) Создайте все типы юзеров и наполните модел приложения `edu`:
+```bash
+python3 manage.py csu
+python3 manage.py loaddata edu.json
+```
 
 8) Запустите сервис:
 ```bash

@@ -9,6 +9,7 @@ class Course(models.Model):
         upload_to="course/", verbose_name="превью", blank=True, null=True
     )
     description = models.CharField(max_length=255, verbose_name="описание")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='создатель', null=True, blank=True)
 
     def __str__(self):
         return f"{self.title}"
@@ -26,6 +27,8 @@ class Lesson(models.Model):
         upload_to="lesson/", verbose_name="превью", blank=True, null=True
     )
     video_link = models.URLField(verbose_name="ссылка на видео")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='создатель', null=True, blank=True)
+
 
     def __str__(self):
         return f"{self.title}"
@@ -36,7 +39,7 @@ class Lesson(models.Model):
 
 
 class Payment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="юзер", related_name='payment')
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="юзер", related_name='payment')
     pay_date = models.DateTimeField(auto_now_add=True, verbose_name="дата оплаты")
     course_paid = models.ForeignKey(
         Course,

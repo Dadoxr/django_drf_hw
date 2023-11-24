@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from django.utils.timezone import timedelta
 from dotenv import load_dotenv
 import os
 
@@ -53,7 +54,23 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+	'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
+	'DATE_FORMAT': '%Y-%m-%d',
+	'TIME_FORMAT': '%H:%M',
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        # 'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
+    ),
+}
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(weeks=50),
+    'REFRESH_TOKEN_LIFETIME': timedelta(weeks=50),
 }
 
 MIDDLEWARE = [

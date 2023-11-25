@@ -1,13 +1,14 @@
 from rest_framework import serializers
 
 from edu.models import Course, Lesson, Payment
-from users.models import User
+from edu.validators import LessonVideoLinkValidator
 
 
 class LessonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lesson
         fields = "__all__"
+        validators = [LessonVideoLinkValidator(field='video_link')]
 
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -28,4 +29,3 @@ class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payment
         fields = "__all__"
-

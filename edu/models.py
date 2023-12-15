@@ -9,7 +9,9 @@ class Course(models.Model):
         upload_to="course/", verbose_name="превью", blank=True, null=True
     )
     description = models.CharField(max_length=255, verbose_name="описание")
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='создатель', null=True, blank=True)
+    owner = models.ForeignKey(
+        User, on_delete=models.CASCADE, verbose_name="создатель", null=True, blank=True
+    )
 
     def __str__(self):
         return f"{self.title}"
@@ -21,14 +23,22 @@ class Course(models.Model):
 
 class Lesson(models.Model):
     title = models.CharField(max_length=255, verbose_name="название")
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="курс", related_name='lesson')
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        verbose_name="курс",
+        related_name="lesson",
+        null=True,
+        blank=True,
+    )
     description = models.TextField(verbose_name="описание")
     preview_image = models.ImageField(
         upload_to="lesson/", verbose_name="превью", blank=True, null=True
     )
     video_link = models.URLField(verbose_name="ссылка на видео")
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='создатель', null=True, blank=True)
-
+    owner = models.ForeignKey(
+        User, on_delete=models.CASCADE, verbose_name="создатель", null=True, blank=True
+    )
 
     def __str__(self):
         return f"{self.title}"
@@ -39,7 +49,9 @@ class Lesson(models.Model):
 
 
 class Payment(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="юзер", related_name='payment')
+    owner = models.ForeignKey(
+        User, on_delete=models.CASCADE, verbose_name="юзер", related_name="payment"
+    )
     pay_date = models.DateTimeField(auto_now_add=True, verbose_name="дата оплаты")
     course_paid = models.ForeignKey(
         Course,
@@ -61,9 +73,30 @@ class Payment(models.Model):
     )
 
     def __str__(self):
-        return f'{self.course_paid if self.course_paid else self.lesson_payd} - {self.pay_date}'
-    
+        return f"{self.course_paid if self.course_paid else self.lesson_payd} - {self.pay_date}"
+
     class Meta:
-        verbose_name = 'оплата'
-        verbose_name_plural = 'оплаты'
-    
+        verbose_name = "оплата"
+        verbose_name_plural = "оплаты"
+
+
+class Subscription(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        verbose_name="юзер",
+        related_name="subscriptions",
+    )
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        verbose_name="курс",
+        related_name="subscribed_users",
+    )
+
+    def __str__(self):
+        return f"{self.user} подписан на {self.course}"
+
+    class Meta:
+        verbose_name = "подписка"
+        verbose_name_plural = "подписки"

@@ -10,7 +10,7 @@ class PaymentListAPIView(ListAPIView):
     queryset = Payment.objects.all()
     serializer_class = PaymentSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ['course_paid', 'lesson_payd']
-    search_fields = ['pay_method']
-    ordering_fields = ['pay_date']
+    filterset_fields = ["course_paid", "lesson_payd"]
+    search_fields = ["pay_method"]
+    ordering_fields = ["pay_date"]
     permission_classes = [IsAuthenticated]

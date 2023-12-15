@@ -8,6 +8,7 @@ class UserSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = [
+            "pk",
             "first_name",
             "last_name",
             "email",
@@ -23,6 +24,7 @@ class UserListSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = [
+            "pk",
             "first_name",
             "last_name",
             "email",
@@ -36,13 +38,13 @@ class UserListSerializer(ModelSerializer):
         fields = super().get_fields(*args, **kwargs)
 
         if not (
-            self.context['request'].user.is_superuser
-            or self.context['request'].user.groups.filter(name="moderators").exists()
+            self.context["request"].user.is_superuser
+            or self.context["request"].user.groups.filter(name="moderators").exists()
         ):
-            fields.pop('avatar', None)
-            fields.pop('first_name', None)
-            fields.pop('avalast_nametar', None)
-            fields.pop('payment', None)
-            fields.pop('phone', None)
+            fields.pop("avatar", None)
+            fields.pop("first_name", None)
+            fields.pop("avalast_nametar", None)
+            fields.pop("payment", None)
+            fields.pop("phone", None)
 
         return fields

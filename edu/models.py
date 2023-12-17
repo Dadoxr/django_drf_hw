@@ -12,6 +12,8 @@ class Course(models.Model):
     owner = models.ForeignKey(
         User, on_delete=models.CASCADE, verbose_name="создатель", null=True, blank=True
     )
+    last_change = models.DateTimeField(auto_now=True, verbose_name='обновлен')
+
 
     def __str__(self):
         return f"{self.title}"
@@ -39,6 +41,8 @@ class Lesson(models.Model):
     owner = models.ForeignKey(
         User, on_delete=models.CASCADE, verbose_name="создатель", null=True, blank=True
     )
+    last_change = models.DateTimeField(auto_now=True, verbose_name='обновлен')
+
 
     def __str__(self):
         return f"{self.title}"

@@ -45,6 +45,9 @@ INSTALLED_APPS = [
 
     'users',
     'edu',
+    
+    'drf_yasg',
+	'corsheaders',
 
     'rest_framework',
     'django_filters',
@@ -76,12 +79,22 @@ SIMPLE_JWT = {
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8000',
+    'https://read-and-write.example.com', 
+    ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://read-and-write.example.com", 
+    ]
 
 ROOT_URLCONF = "config.urls"
 
@@ -250,3 +263,5 @@ LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/users/'
 
 ALLOW_ANY_USER = True
+
+STRIPE_API_KEY = os.getenv('STRIPE_API_KEY')

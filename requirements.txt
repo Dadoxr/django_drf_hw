@@ -2,11 +2,14 @@ APScheduler==3.10.4
 asgiref==3.7.2
 astroid==3.0.1
 black==23.11.0
+certifi @ file:///private/tmp/python-certifi-20231130-2740-m9wlxz/certifi-2023.11.17
+charset-normalizer @ file:///private/tmp/python-charset-normalizer-20231130-2948-zdyg3/charset-normalizer-3.3.2
 click==8.1.7
 crispy-bootstrap5==2023.10
 dill==0.3.7
 Django==4.2.7
 django-apscheduler==0.6.2
+django-cors-headers==4.3.1
 django-crispy-forms==2.1
 django-filter==23.4
 django-stubs==4.2.6
@@ -14,26 +17,46 @@ django-stubs-ext==4.2.5
 django-timezone-field==6.0.1
 djangorestframework==3.14.0
 djangorestframework-simplejwt==5.3.0
+docutils @ file:///private/tmp/docutils-20231130-1050-k6gmdo/docutils-0.20.1
+drf-yasg==1.21.7
+editables @ file:///private/tmp/python-hatchling--editables-20231130-2014-trprt9/editables-0.3
+flit_core @ file:///private/tmp/python-flit-core-20231130-1117-1h044j1/flit_core-3.9.0
+hatchling @ file:///private/tmp/python-hatchling-20231130-2014-aaa1tx/hatchling-1.18.0
+huepy==1.2.1
+idna @ file:///private/tmp/python-idna-20231130-3141-1w0wgxk/idna-3.6
+inflection==0.5.1
 isort==5.12.0
+Jinja2 @ file:///private/tmp/python-jinja-20231130-2535-1w4n3o0/Jinja2-3.1.2
+MarkupSafe @ file:///private/tmp/python-markupsafe-20231130-2301-1ytg2nj/MarkupSafe-2.1.3
 mccabe==0.7.0
 mypy==1.7.0
 mypy-extensions==1.0.0
-packaging==23.2
-pathspec==0.11.2
+packaging @ file:///private/tmp/python-packaging-20231130-1191-14odts4/packaging-23.2
+pathspec @ file:///private/tmp/python-pathspec-20231130-1263-19xwgxv/pathspec-0.11.2
 Pillow==10.1.0
 platformdirs==4.0.0
+pluggy @ file:///private/tmp/python-pluggy-20231130-1612-1v823ir/pluggy-1.3.0
+psycopg2==2.9.7
 psycopg2-binary==2.9.9
+Pygments @ file:///private/tmp/pygments-20231130-2233-ktd4u/pygments-2.17.2
 PyJWT==2.8.0
 pylint==3.0.2
 pylint-django==2.5.5
 pylint-plugin-utils==0.8.2
 python-dotenv==1.0.0
 pytz==2023.3.post1
+PyYAML @ file:///private/tmp/pyyaml-20230718-6369-a6l507/PyYAML-6.0.1
 redis==5.0.1
+requests @ file:///private/tmp/python-requests-20231130-3287-10u5649/requests-2.31.0
+setuptools-scm @ file:///private/tmp/python-setuptools-scm-20231130-1407-17vlty9/setuptools-scm-8.0.4
 six==1.16.0
 sqlparse==0.4.4
+tabulate @ file:///private/tmp/python-tabulate-20231130-3494-1qvlyeu/tabulate-0.9.0
 tomlkit==0.12.3
+trove-classifiers @ file:///private/tmp/python-trove-classifiers-20231130-1816-zxv1ny/trove-classifiers-2023.11.29
 types-pytz==2023.3.1.1
 types-PyYAML==6.0.12.12
-typing_extensions==4.8.0
+typing_extensions @ file:///private/tmp/python-typing-extensions-20231130-1334-1r9vr6p/typing_extensions-4.8.0
 tzlocal==5.2
+uritemplate==4.1.1
+urllib3 @ file:///private/tmp/python-urllib3-20231130-3220-ys695z/urllib3-2.1.0

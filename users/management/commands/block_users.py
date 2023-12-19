@@ -2,7 +2,7 @@ from django_celery_beat.models import PeriodicTask, IntervalSchedule
 
 def set_schedule(every=None, period=None, name=None, task=None):
 	if not (every and period and name and task):
-		every, period, name, task = 1, IntervalSchedule.MONTH, 'Check login profile', 'user.tasks.block_user'
+		every, period, name, task = 1, IntervalSchedule.MONTH, 'Block users login month ago', 'user.tasks.block_users'
 	schedule, created = IntervalSchedule.objects.get_or_create(
 	     every=every,
 	     period=period # IntervalSchedule.SECONDS,

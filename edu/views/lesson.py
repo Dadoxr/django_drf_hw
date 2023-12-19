@@ -24,16 +24,10 @@ class LessonUpdateAPIView(generics.UpdateAPIView):
         if not settings.ALLOW_ANY_USER
         else [AllowAny]
     )
-
-    def put(self, request, *args, **kwargs):
-        self.object = self.update(request, *args, **kwargs)
-        send_message_with_renew_course.delay(self.object.pk)
-        return self.object
-
-    def patch(self, request, *args, **kwargs):
-        self.object = self.partial_update(request, *args, **kwargs)
-        send_message_with_renew_course.delay(self.object.pk)
-        return self.object
+    
+    def perform_update(self, serializer):
+        lesson = serializer.save()
+        send_message_with_renew_course.delay(course_id=lesson.course_pk)
 
 
 class LessonDestroyAPIView(generics.DestroyAPIView):

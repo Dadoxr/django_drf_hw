@@ -9,6 +9,7 @@ def block_users():
     
     for user in users_to_block:
         user.is_active = False
-        user.save()
+    
+    User.objects.bulk_update(users_to_block)
 
         

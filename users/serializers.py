@@ -12,9 +12,6 @@ class UserSerializer(ModelSerializer):
             "first_name",
             "last_name",
             "email",
-            "phone",
-            "city",
-            "avatar",
         ]
 
 

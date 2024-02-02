@@ -1,8 +1,41 @@
 # Django Mailer 'ТИЧЕР'
+Этот репозиторий содержит конфигурацию Docker Compose для запуска Django-приложения с Celery и Redis. В настройках также предусмотрена база данных PostgreSQL для хранения данных.
 
-Думаю что написать
+## Установка Docker
 
-## Установка
+1) Убедитесь, что у вас установлены Docker и Docker Compose на вашем компьютере.
+- [Руководство по установке Docker](https://docs.docker.com/engine/install/ubuntu/)
+
+2) Использование
+Клонируйте репозиторий на ваш компьютер.
+
+```bash
+git clone <repository-url>
+cd <repository-directory>
+```
+
+3) Создайте файл `.env` на основе `.env.sample` и заполните его:
+```bash
+touch django_drf_hw/.env
+echo django_drf_hw/.env.sample > django_drf_hw/.env
+vim django_drf_hw/.env
+```
+
+4) Запустите приложение с помощью Docker Compose.
+
+```bash
+docker-compose up --build
+```
+
+Доступ к Django-приложению по адресу http://localhost:8001.
+
+Замечания
+- Django-приложение настроено на работу на порту 8001, чтобы избежать конфликтов с локальным сервером разработки.
+- Сервисы Celery Worker и Beat настроены на запуск с Django-приложением и зависят от сервисов web и redis.
+
+
+
+## Установка вручную
 
 1) Убедитесь, что у вас установлен Python3 и Django.
 
